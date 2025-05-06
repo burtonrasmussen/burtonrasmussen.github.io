@@ -3,6 +3,7 @@
   <h2>Contact</h2>
 
   <style>
+    input[type="text"],
     input[type="email"],
     textarea {
       width: 100%;
@@ -38,6 +39,10 @@
 
   <div class="group">
     <form action="https://formspree.io/f/mvgaayjk" method="POST">
+      <label>
+        Your name:
+        <input type="text" name="name">
+      </label>
       <label>
         Your email:
         <input type="email" name="email">
