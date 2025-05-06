@@ -1,53 +1,92 @@
 ---
 layout: post
-title: project title
-description:  short description of the project
+title: Dobsonian Telescope Project
+description: An iterative telescope design project to develop a GoTo Dobsonian telescope system, integrating CAD design, mechanical prototyping, and electronics.
 skills: 
-- skill 1
-- skill 2
+- Mechanical Design
+- CAD (SolidWorks, Fusion 360, Onshape)
+- 3D Printing & Design for Manufacture
+- Soldering & Electronics Assembly
+- CNC Routing
 main-image: /20240720_063313-cropped.jpg
 ---
 
+# Project Overview
+
+This ongoing project explores the mechanical and electronic design of a computerized Dobsonian telescope mount. Leveraging the open-source OnStep controller and iterative physical prototyping, I’ve refined the system through multiple full redesigns focused on portability, usability, and manufacturability.
+
 ---
-# First Iteration - 2021
+
+# Iteration 1 – 2021  
 {% include image-gallery.html images="1_Iteration_thumbnail.jpg" height="400" %}
-The goal of this project was to add a computer guidance system to my telescope to aid in sharing the view of the stars with family and friends. There is an open-source project called OnStep, which has done all the software development work for people who want to DIY their own GoTo system. 
-<br>
-## Design Process
-- hand drawings
-- brainstorming
-- decision matrix
-- 3D modeling
-- Iterative improvements
-- solving problems that come up
-    - belt tensioning
-    - quick assembly/dissassembly
-<br>
 
+**Goal:** Implement a motorized tracking system for stargazing under a $200 budget using the OnStep open-source controller.
 
-## Electronics Process
-- learning to solder
-- assemble electronics for proof of concept
-- calibrating configuration parameters
+## Design Highlights
+- Low-cost materials and 3D-printed parts
+- Custom motor mounts and belt-driven alt-az axes
+- Prototyping and iteration via Onshape CAD and hand-built components
 
-<br>
-## What I Learned
-- Soldering skills
-- I discovered new pain points that came from adding electronics, like more difficult to dissassemble/assemble for transport, and needing more rigidity
+## Electronics & Control
+- Soldered and assembled OnStep controller board
+- Tuned configuration parameters for NEMA17 motors
+- Basic slewing and tracking functions tested
 
+## Lessons Learned
+- Electronics added complexity during assembly/disassembly
+- Mechanical rigidity and belt tensioning issues impacted performance
+- Learned soldering and practical troubleshooting for embedded systems
 
-# Second Iteration - 2023
+---
+
+# Iteration 2 – 2023  
 {% include image-gallery.html images="2_Iteration_thumbnail.jpg" height="400" %}
-## Design Process
 
-## What I Learned
+**Goal:** Improve portability with a truss design and reuse original telescope parts for accessibility and modularity.
 
+## Design Highlights
+- Designed a collapsible truss structure for easier transport
+- Integrated reused optics and hardware to keep the project approachable
+- Fabricated components using manual woodworking and 3D printing
 
-<br>
-# Third Iteration - 2024
+## Challenges
+- Manual fabrication lacked precision despite use of jigs
+- Structural rigidity was insufficient for reliable motorized tracking
+
+## Lessons Learned
+- Precision limitations of manual fabrication tools constrained performance
+- Deferred re-integrating electronics due to structural instability
+
+---
+
+# Iteration 3 – 2024  
 {% include image-gallery.html images="20240720_063313-cropped.jpg" height="400" %}
 
-# Plans for next iteration
-Now having much more experience with the physical design of the telescope, I plan to take all that I've learned and make a "hopefully" final version and bring back the electronics. 
+**Goal:** Increase rigidity and dimensional accuracy through CNC-routed parts and refine CoG adjustment features for improved balance.
+
+## Design Highlights
+- Fabricated base and truss connectors using a CNC router for higher accuracy
+- Used Python to model spring counterbalance and determine optimal spring constant and mounting point
+- Added CoG-adjustment slots for flexibility with upper tube weights
+
+## Challenges
+- Upper tube assembly was too heavy for design intent
+- Truss connections were difficult to assemble, reducing portability
+- Required excessive CoG shift that negated space-saving benefits
+
+## Lessons Learned
+- Improved early prototyping using small-scale mockups
+- Identified limitations in current structural and connection approach
+
+---
+
+# Future Direction
+
+The next revision will focus on:
+
+- Weight reduction in the upper tube assembly by designing a custom lightweight focuser and secondary mirror spider
+- Quick-release truss connectors to reduce assembly time
+- Lower tube brackets for simplified truss mounting
+- More extensive use of scaled prototypes to validate design concepts early
 
 ---
