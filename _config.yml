@@ -15,9 +15,9 @@ title: Burton Rasmussen's Portfolio # This is what shows up in the tab of the br
 name: Burton Rasmussen
 headline: This is my engineering portfolio, containing many of my engineering projects to showcase my skills and experience.
 description: >- # dont remove this line. this will ignore all new lines until the next section
-  Write an awesome intro and discuss your highlights and qualification. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  I’m a mechanical engineer with a practical focus on mechanical design, prototyping, and small-scale automation. My work includes 
+  CNC machining, 3D printing, and Arduino-based projects, with an emphasis on building functional systems and testing ideas 
+  through an iterative process. This portfolio features selected projects and designs all aimed at demonstrating my skills in CAD, fabrication, and system integration.
 
 # Place your profile image in /assets/images/profile-image/folder and edit the file name
 profile_image: ./assets/images/profile-image/avatar.jpg
