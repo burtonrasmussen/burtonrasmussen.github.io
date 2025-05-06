@@ -7,3 +7,33 @@ skills:
 - skill 2
 main-image: /20240720_063313-cropped.jpg
 ---
+
+---
+## First Iteration
+The goal of this project was to add a computer guidance system to my telescope to aid in sharing the view of the stars with family and friends. There is an open-source project called OnStep, which has done all the software development work for people who want to DIY their own GoTo system. 
+<br>
+# Design Process
+- hand drawings
+- brainstorming
+- decision matrix
+- 3D modeling
+- Iterative improvements
+- solving problems that come up
+    - sldjfk
+<br>
+
+
+# Electronics Process
+- learning to solder
+- assemble electronics for proof of concept
+- calibrating configuration parameters
+
+<br>
+
+
+
+## Second Iteration
+
+
+## Current Iteration
+---
