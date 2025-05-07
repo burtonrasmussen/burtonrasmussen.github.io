@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Dobsonian Telescope Project
-description: An iterative telescope design project to develop a GoTo Dobsonian telescope system, integrating CAD design, mechanical prototyping, and electronics.
+description: This project showcases the iterative design and development of a computerized Dobsonian telescope system. Over several years, I have refined the mechanical structure, explored computer-guided tracking using the OnStep open-source controller, and tested approaches to improve portability, rigidity, and ease of assembly. Each version builds on lessons from the last, integrating CAD modeling, physical prototyping, CNC fabrication, and electronics assembly to create a functional, transportable telescope mount.
+
 skills: 
 - Mechanical Design
 - CAD (SolidWorks, Fusion 360, Onshape)
@@ -9,12 +10,6 @@ skills:
 - Soldering & Electronics Assembly
 - CNC Routing
 main-image: /20240720_063313-cropped.jpg
----
-
-# Project Overview
-
-This ongoing project explores the mechanical and electronic design of a computerized Dobsonian telescope mount. Leveraging the open-source OnStep controller and iterative physical prototyping, I’ve refined the system through multiple full redesigns focused on portability, usability, and manufacturability.
-
 ---
 
 # Iteration 1 – 2021  
