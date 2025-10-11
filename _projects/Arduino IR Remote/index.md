@@ -1,16 +1,15 @@
 ---
 layout: post
 title: Arduino IR Universal Remote
-description: This project documents the design and development of a custom, ESP32-based universal IR remote. It showcases a journey from initial concept sketching and circuit prototyping to advanced PCB design, highlighting skills in electronics, embedded systems, and design for manufacturability. The project is currently in the PCB design phase, demonstrating a commitment to seeing a complex project through to a polished final product.
+description: This project showcases my electronics skills and design approach in making an ESP-32 universal IR remote. It showcases my process from initial concept sketching and circuit prototyping to PCB design. The project is currently in the PCB design phase, demonstrating my commitment to seeing a complex project through to a polished final product.
 
 skills: 
 - Circuit Design & Prototyping
 - PCB Design (KiCAD)
-- Schematic Capture
-- Embedded Systems (ESP32/Arduino)
+- ESP32/Arduino
 - Soldering & Electronics Assembly
-- Component Selection (THT vs. SMD)
-main-image: /path/to/your/main-image.jpg
+- Component Selection
+main-image: /20240720_063313-cropped.jpg
 ---
 
 # Project Goal
