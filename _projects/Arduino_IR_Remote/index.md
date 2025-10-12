@@ -35,8 +35,8 @@ To design and build a programmable, ESP-32 powered IR remote capable of replacin
 # Phase 2 – Electronics Prototyping
 
 **Goal:** Design and build a functional proof-of-concept circuit to validate the electronic design before creating a permanent and compact PCB.
-{% include image-gallery.html images="/_projects/Arduino IR Remote/diylayoutcreator_schematic.png" height="400" %}
-{% include image-gallery.html images="/_projects/Arduino IR Remote/prototype_circuit.jpg" height="400" %}
+{% include image-gallery.html images="diylayoutcreator_schematic.png" height="400" %}
+{% include image-gallery.html images="prototype_circuit.jpg" height="400" %}
 
 ## Design Highlights
 - Developed a circuit to read a 9x3 button array using a minimal number of pins on the ESP-32 microcontroller.
