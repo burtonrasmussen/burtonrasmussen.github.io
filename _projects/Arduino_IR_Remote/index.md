@@ -19,7 +19,7 @@ To design and build a programmable, ESP-32 powered IR remote capable of replacin
 ---
 
 # Phase 1 – Concept and Ergonomics
-{% include image-gallery.html images="button_layout_brainstorm.jpg" height="400" %}
+{% include image-gallery.html images="button_layout_brainstorm.jpg" height="600" %}
 
 **Goal:** Define the core functionality and create an intuitive and comfortable button layout.
 
