@@ -35,7 +35,7 @@ To design and build a programmable, ESP-32 powered IR remote capable of replacin
 # Phase 2 – Electronics Prototyping
 
 **Goal:** Design and build a functional proof-of-concept circuit to validate the electronic design before creating a permanent and compact PCB.
-{% include image-gallery.html images="diylayoutcreator_schematic.png" height="400" %}
+{% include image-gallery.html images="diylayoutcreator_schematic.png" "prototype_circuit.jpg" height="400" %}
 {% include image-gallery.html images="prototype_circuit.jpg" height="400" %}
 
 ## Design Highlights
