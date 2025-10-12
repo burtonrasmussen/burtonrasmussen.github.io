@@ -57,7 +57,7 @@ To design and build a programmable, ESP-32 powered IR remote capable of replacin
 ---
 
 # Phase 3 – PCB Design & Miniaturization (Current Stage)
-{% include image-gallery.html images="kicad_schematic.png" height="400" %}
+{% include image-gallery.html images="kicad_schematic.png" height="600" %}
 {% include image-gallery.html images="kicad_big_pcb.png" height="400" %}
 {% include image-gallery.html images="kicad_pcbdesigner.png" height="400" %}
 
