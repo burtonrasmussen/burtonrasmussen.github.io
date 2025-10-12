@@ -9,7 +9,7 @@ skills:
 - ESP32/Arduino
 - Soldering & Electronics Assembly
 - Component Selection
-main-image: kicad_big_pcb.png
+main-image: /kicad_big_pcb.png
 ---
 
 # Project Goal
