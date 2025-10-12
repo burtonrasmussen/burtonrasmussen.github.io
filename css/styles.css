@@ -67,7 +67,10 @@ nav {
     padding: 25px 0;
     height: 80px;
     align-items: center;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--background-color);
 }
 
 nav .left a {
@@ -97,7 +100,7 @@ nav .right a:last-child
 nav .right a:last-child:hover,
 nav .right a span:last-child:hover,
 nav .mobile-nav a:last-child:hover,
-nav .mobile-nav a span:last-child:hover,{
+nav .mobile-nav a span:last-child:hover{
     color: var(--text-color);
     background-color: var(--light-background-color);
     border-radius: 10px;
