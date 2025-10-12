@@ -19,7 +19,7 @@ To design and build a programmable, ESP-32 powered IR remote capable of replacin
 ---
 
 # Phase 1 – Concept and Ergonomics
-{% include image-gallery.html images="/_projects/Arduino IR Remote/button_layout_brainstorm.jpg" height="400" %}
+{% include image-gallery.html images="button_layout_brainstorm.jpg" height="400" %}
 
 **Goal:** Define the core functionality and create an intuitive and comfortable button layout.
 
@@ -58,9 +58,9 @@ To design and build a programmable, ESP-32 powered IR remote capable of replacin
 ---
 
 # Phase 3 – PCB Design & Miniaturization (Current Stage)
-{% include image-gallery.html images="/_projects/Arduino IR Remote/kicad_schematic.png" height="400" %}
-{% include image-gallery.html images="/_projects/Arduino IR Remote/kicad_big_pcb.png" height="400" %}
-{% include image-gallery.html images="/_projects/Arduino IR Remote/kicad_pcbdesigner.png" height="400" %}
+{% include image-gallery.html images="kicad_schematic.png" height="400" %}
+{% include image-gallery.html images="kicad_big_pcb.png" height="400" %}
+{% include image-gallery.html images="kicad_pcbdesigner.png" height="400" %}
 
 
 **Goal:** Transition the validated prototype circuit into a compact and professional Printed Circuit Board (PCB) using KiCAD.
