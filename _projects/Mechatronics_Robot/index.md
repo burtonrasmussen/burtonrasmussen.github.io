@@ -22,7 +22,11 @@ My primary responsibilities included the design and implementation of the entire
 ---
 
 # Electrical System Design
-{% include image-gallery.html images="MEGA_shield_colorcoded_topside.jpg, MEGA_shield_wiring_underside.jpg, robot_wiring_first_iteration.jpg, robot_wiring_reorganized_iteration.jpg, all_protoboards_unassembled.jpg" height="400" %}
+
+{% include image-gallery.html images="all_protoboards_unassembled.jpg" height="400" %}
+{% include image-gallery.html images="MEGA_shield_colorcoded_topside.jpg, MEGA_shield_wiring_underside.jpg" height="200" %}
+{% include image-gallery.html images="robot_wiring_first_iteration.jpg, robot_wiring_reorganized_iteration.jpg" height="200" %}
+
 
 **Goal:** Create a reliable, modular, and easy-to-troubleshoot electrical system capable of handling a complex array of motors and sensors.
 
