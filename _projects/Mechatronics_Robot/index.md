@@ -10,7 +10,7 @@ skills:
 - CAD & Digital Fabrication (3D Printing, Laser Cutting)
 - Arduino & Embedded Systems
 - GitHub & Team Collaboration
-main-image: /assets/images/mechatronics-robot/robot_render.png
+main-image: /robot_render.png
 ---
 
 # Project Overview
@@ -22,7 +22,7 @@ My primary responsibilities included the design and implementation of the entire
 ---
 
 # Electrical System Design
-{% include image-gallery.html images="/assets/images/mechatronics-robot/MEGA_shield_colorcoded_topside.jpg, /assets/images/mechatronics-robot/MEGA_shield_wiring_underside.jpg, /assets/images/mechatronics-robot/robot_wiring_first_iteration.jpg, /assets/images/mechatronics-robot/robot_wiring_reorganized_iteration.jpg, /assets/images/mechatronics-robot/all_protoboards_unassembled.jpg" height="600" %}
+{% include image-gallery.html images="MEGA_shield_colorcoded_topside.jpg, MEGA_shield_wiring_underside.jpg, robot_wiring_first_iteration.jpg, robot_wiring_reorganized_iteration.jpg, all_protoboards_unassembled.jpg" height="600" %}
 
 **Goal:** Create a reliable, modular, and easy-to-troubleshoot electrical system capable of handling a complex array of motors and sensors.
 
@@ -37,7 +37,7 @@ Well-organized wiring was our biggest competitive advantage. While other teams s
 ---
 
 # Drivetrain & Mechanical Systems
-{% include image-gallery.html images="/assets/images/mechatronics-robot/robot_render.png, /assets/images/mechatronics-robot/robot_mining_example.jpg, /assets/images/mechatronics-robot/robot_mining_loading_example.jpg, /assets/images/mechatronics-robot/robot_crafting_example.jpg" height="800" %}
+{% include image-gallery.html images="robot_render.png, robot_mining_example.jpg, robot_mining_loading_example.jpg, robot_crafting_example.jpg" height="800" %}
 
 **Goal:** Minimize the number of movements needed to position our robot on the playing field, and maintain accuracy, utilizing line sensors for error correction.
 
@@ -53,7 +53,7 @@ Well-organized wiring was our biggest competitive advantage. While other teams s
 ---
 
 # Control Systems & Software Architecture
-{% include image-gallery.html images="/assets/images/mechatronics-robot/trapezoidal_trajectory_example.jpg" height="400" %}
+{% include image-gallery.html images="trapezoidal_trajectory_example.jpg" height="400" %}
 
 **Goal:** Develop a non-blocking, multi-tasking control system for smooth, efficient, and autonomous operation.
 
