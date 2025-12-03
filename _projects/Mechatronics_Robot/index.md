@@ -24,11 +24,13 @@ My primary responsibilities included the design and implementation of the entire
 # Electrical System Design
 
 {% include image-gallery.html images="all_protoboards_unassembled.jpg" height="400" %}
+*All custom protoboards laid out before assembly, showing the modular subsystem architecture.*
 
 {% include image-gallery.html images="MEGA_shield_colorcoded_topside.jpg, MEGA_shield_wiring_underside.jpg" height="300" %}
+*Arduino Mega shield with color-coded connectors (left) and organized point-to-point wiring on the underside (right).*
 
 {% include image-gallery.html images="robot_wiring_first_iteration.jpg, robot_wiring_reorganized_iteration.jpg" height="400" %}
-
+*Evolution of the robot's internal wiring: initial assembly (left) and final optimized layout (right) with improved cable management.*
 
 **Goal:** Create a reliable, modular, and easy-to-troubleshoot electrical system capable of handling a complex array of motors and sensors.
 
@@ -36,6 +38,8 @@ My primary responsibilities included the design and implementation of the entire
 - **Modular Architecture:** The system was divided into logical subsystems (Arduino Mega Shield, Drivetrain, Conveyor, Sensors), each on its own protoboard. This kept wiring clean and simplified assembly.
 - **Robust Connectors:** I used 10-pin IDC ribbon cables for logic signals between boards and JST connectors for all external components (motors, sensors, switches). This created a robust system that made assembly and debugging efficient.
 - **Error-Proofing:** All connectors were keyed and color-coded to prevent incorrect connections, a critical feature that prevented catastrophic failures during testing and competition.
+
+[View the complete KiCAD wiring schematic](https://drive.google.com/file/d/1XWaorqQnZn9iLrw5HxJZZbhs5fJKOFQc/view?usp=sharing)
 
 ## Lessons Learned
 Well-organized wiring was our biggest competitive advantage. While other teams struggled with electrical faults, our modular and robust design allowed for rapid troubleshooting and iteration, ensuring we had more time to optimize our design.
