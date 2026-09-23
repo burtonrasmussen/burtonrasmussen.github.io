@@ -15,7 +15,7 @@ hidden: true
 
 # Project Goal
 
-The inverted pendulum on a mobile cart is a classic, highly non-linear benchmark problem in control theory and robotics. The goal of this project was to design, model, simulate, and build a self-balancing two-wheeled robotic platform from the ground up. The system integrates full-state feedback control (LQR), real-time embedded sensor fusion, and custom-designed motor driver hardware to maintain upright stability and reject external disturbances.
+The inverted pendulum on a mobile cart is a classic, highly non-linear benchmark problem in control theory and robotics. The goal of this project was to design, model, simulate, and build a self-balancing two-wheeled robot from scratch. The system integrates full-state feedback control (LQR) with real-time embedded sensor fusion to maintain upright stability and reject external disturbances.
 
 ---
 
@@ -25,23 +25,21 @@ The inverted pendulum on a mobile cart is a classic, highly non-linear benchmark
 **Goal:** Derive equations of motion and synthesize optimal feedback controllers for stability and disturbance rejection.
 
 ## System Modeling & Formulation
-- **Nonlinear Dynamics:** Derived governing nonlinear equations of motion using Euler-Lagrange mechanics, coupling cart translational acceleration with pendulum tilt dynamics and wheel rotational inertia.
+- **Nonlinear Dynamics:** Derived governing nonlinear equations of motion using Lagrangian mechanics, coupling cart translational acceleration with pendulum tilt dynamics and wheel rotational inertia.
 - **State-Space Linearization:** Linearized the continuous-time dynamics around the upright unstable equilibrium point $\mathbf{x} = [x, \dot{x}, \theta, \dot{\theta}]^T = \mathbf{0}$.
 - **Linear Quadratic Regulator (LQR) Tuning:** Formulated quadratic cost weighting matrices ($\mathbf{Q}$ and $\mathbf{R}$) to penalize angular tilt deviation and cart position displacement while optimizing control effort and actuator saturation limits.
-- **Simulation & Disturbance Rejection:** Validated closed-loop stability and recovery time against step force impulses and initial angle deflections in MATLAB/Python simulations.
+- **Simulation & Disturbance Rejection:** Validated closed-loop stability and recovery time against step force impulses and initial angle deflections in simulation.
 
 ---
 
-# Phase 2 – Custom Motor Driver PCB Design (KiCAD)
-{% include image-gallery.html images="motor_driver_pcb_front-1.png, motor_driver_pcb_layout-1.png, motor_driver_pcb_layout-2.png" height="500" %}
+# Phase 2 – Robot Design and hardware selection
 
-**Goal:** Design a robust, compact dual H-bridge motor driver board to interface high-current DC gearmotors with the embedded microcontroller.
+**Goal:** Select appropriate hardware for the robot around the STM32 microcontroller and a 24V brushed DC motor, ensuring sensors and drivers will be able to provide adequate control input and sensing of the robot's state at a high enough frequency and resolution for the LQR control law to work
 
 ## Hardware & Schematic Architecture
-- **Dual H-Bridge Driver Stage:** Designed high-efficiency MOSFET/H-bridge driver circuitry capable of handling continuous load currents and bidirectional PWM control for both drive wheels.
-- **Low-Noise Layout & Isolation:** Implemented dedicated power and logic ground zones, high-current copper traces for motor rail currents, and decoupling capacitors to eliminate inductive switching transients and prevent microcontroller brownouts.
-- **KiCAD 2-Layer Routing:** Completed schematic capture, DRC verification, and 2-layer PCB layout with test points and standard 0.1" header pinouts for seamless stackable integration.
-
+- **Power Train:** Selected a 24V brushed DC motor I had on hand,and used a 3:1 pulley gear ratio. The motor had a built-in 400 CPR quadrature encoder. We went with a POLULU TB8041FTG motor driver due to its high efficiency and ability to drive high current DC motors.
+- **KiCAD wiring schematic:** Due to time constraints, we went with a perfboard and point-to-point wiring strategy for the robot, using KiCAD to create a wiring schematic to help keep track of the wiring.
+- **Pendulum encoder:** selected a magnetic rotary encoder to provide high resolution feedback on the angle of the pendulum.
 ---
 
 # Phase 3 – Embedded Firmware & Real-Time Sensor Fusion
