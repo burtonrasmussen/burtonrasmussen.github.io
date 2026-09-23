@@ -5,17 +5,14 @@ description: Modeling, embedded firmware development, and custom motor driver ha
 skills:
   - Controls Engineering (LQR / State-Space)
   - Embedded Systems & C Programming
-  - Microcontroller Integration (STM32)
-  - PCB Design & Layout (KiCAD)
-  - Sensor Fusion (IMU / Encoders)
-  - Dynamic System Simulation (MATLAB)
+  - Electrical Schematics (KiCAD)
+  - Dynamic System Simulation (Python)
 main-image: /lqr_response.png
-hidden: true
 ---
 
 # Project Goal
 
-The inverted pendulum on a mobile cart is a classic, highly non-linear benchmark problem in control theory and robotics. The goal of this project was to design, model, simulate, and build a self-balancing two-wheeled robot from scratch. The system integrates full-state feedback control (LQR) with real-time embedded sensor fusion to maintain upright stability and reject external disturbances.
+The inverted pendulum on a mobile cart is a classic, non-linear benchmark problem in control theory and robotics. The goal of this project was to design, model, simulate, and build a self-balancing robot from scratch. The system integrates full-state feedback control (LQR) to maintain upright stability and reject external disturbances.
 
 ---
 
@@ -44,17 +41,18 @@ The inverted pendulum on a mobile cart is a classic, highly non-linear benchmark
 
 # Phase 3 – Embedded Firmware & Real-Time Sensor Fusion
 
-**Goal:** Implement real-time control algorithms and sensor acquisition on an embedded microcontroller platform.
+**Goal:** Implement real-time control algorithms and read sensors to provide state feedback at 1kHz on an embedded microcontroller platform.
 
 ## Firmware Implementation Highlights
-- **Deterministic Control Loop:** Configured hardware timer interrupts running at 100 Hz to guarantee deterministic sampling and state updates.
-- **Sensor Fusion:** Integrated a 6-DOF IMU (accelerometer + gyroscope) using a complementary filter to obtain drift-free, low-latency pitch angle ($\theta$) and angular velocity ($\dot{\theta}$) estimates.
+- **Deterministic Control Loop:** Configured hardware timer interrupts running at 1 kHz to guarantee deterministic sampling and state updates.
 - **Encoder Quadrature Decoding:** Utilized hardware timer encoder interfaces to track wheel positions ($x$) and velocities ($\dot{x}$) without processor overhead.
+- I2C communication: Configured I2C to read pendulum encoder data within 150 microseconds. Used logic analyzer to diagnose and verify timing to ensure communication met the 1 kHz control loop requirements.
 - **Full-State Feedback Computation:** Calculated real-time motor PWM command voltages via $u = -\mathbf{K}\mathbf{x}$, incorporating anti-windup deadband compensation for motor static friction.
 
 ---
 
-# Key Learnings & Future Enhancements
+# Key Learnings
 
-- **Practical Friction & Deadband:** Overcoming real-world motor deadband and gearbox backlash required fine-tuning feedforward friction compensation alongside theoretical LQR gains.
-- **Future Direction:** Implementing trajectory tracking for autonomous waypoint navigation and integrating remote Bluetooth / RC telemetry for live parameter tuning.
+- **Filter phase delay:** Filtering of encoder signals was necessary to provide smooth state estimates, however this introduced a phase delay that made the robot unstable, requiring feedforward compensation for the phase delay.
+- **LQR Tuning:** Gains tuned via LQR were necessary to account for the differences between my simplified model and the real world system with non-linear friction and backlash in the drivetrain.
+
