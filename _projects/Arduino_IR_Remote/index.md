@@ -1,20 +1,20 @@
 ---
 layout: post
 title: Arduino IR Universal Remote
-description: This project showcases my electronics skills and design approach in making an ESP-32 universal IR remote. It showcases my process from initial concept sketching and circuit prototyping to PCB design. The project is currently in the PCB design phase, demonstrating my commitment to seeing a complex project through to a polished final product.
+description: This project showcases my electronics skills and design approach in making a universal IR remote. It showcases my process from initial concept sketching and circuit prototyping to PCB design. The project is currently in the PCB design phase, demonstrating my commitment to seeing a complex project through to a polished final product.
 
 skills: 
 - Circuit Design & Prototyping
 - PCB Design (KiCAD)
-- ESP32/Arduino
-- Soldering & Electronics Assembly
+- Microcontroller Programming
 - Component Selection
+- Soldering & Electronics Assembly
 main-image: /pcb_top_poured.png
 ---
 
 # Project Goal
 
-To design and build a programmable, ESP-32 powered IR remote capable of replacing multiple household remotes into a single, custom device. The project focuses on learning new skills in order to prototype the devices' functionality and feasability. The end goal is to develop a compact and ergonomic final product using a manufactured pcb and 3D printed enclosure.
+To design and build a programmable, Microcontroller-powered IR remote capable of replacing multiple household remotes into a single, custom device. The project focuses on learning new skills in order to prototype the devices' functionality and feasability. The end goal is to develop a compact and ergonomic final product using a manufactured pcb and 3D printed enclosure.
 
 ---
 
@@ -56,27 +56,27 @@ To design and build a programmable, ESP-32 powered IR remote capable of replacin
 
 # Phase 3 – PCB Design & Miniaturization (V2 SMD Prototype)
 {% include image-gallery.html images="pcb_top_poured.png, pcb_bottom_poured.png" height="500" %}
-{% include image-gallery.html images="pcb_top.png, pcb_bottom.png" height="500" %}
 {% include image-gallery.html images="kicad_schematic.png" height="600" %}
 
-**Goal:** Transition the validated prototype circuit into a compact, professional SMD Printed Circuit Board (PCB) using KiCAD.
+**Goal:** Transition the validated prototype circuit into a compact, professional PCB using KiCAD.
 
 ## Design Highlights
 - Transitioned from bulky through-hole components to surface-mount technology (SMD) to dramatically reduce board area and maintain an ergonomic handheld form factor.
 - Routed a multi-layer PCB in **KiCAD** incorporating ground and power copper pours for signal integrity and low noise.
-- Integrated dedicated power regulation circuitry (boost regulator and MOSFET power switching) alongside the ESP-32 controller, OLED header, and tactile button matrix.
+- Integrated dedicated power regulation circuitry (boost regulator and MOSFET power switching), OLED header, and tactile button matrix.
+- Used a 16-channel button matrix multiplexer IC to reduce the number of pins required to read the button array from 27 to 7 GPIO pins.
 
 ## Challenges
-- Managing high trace density and routing around matrix switches required careful layer stack-up planning, via placement, and clearance verification.
-- Ensuring adequate thermal dissipation and low-impedance return paths for the amplified high-power IR LED drive stage.
+- Managing high trace density while preserving ground planes
+- Could not decide on a microcontroller yet, so ended up using pin headers to allow for testing the compact PCB design while allowing for the flexibility to stick with using development boards like the STM32Nucleo and NRF52840.
 
 ## Lessons Learned
-- Gained in-depth Design for Manufacture (DFM) and Design for Assembly (DFA) experience with SMD footprints, solder mask clearances, and component sourcing.
+- Gained experience with Design for Manufacture (DFM) and SMD component selection.
 
 ---
 
 # Future Direction
 
-- **Fabrication & Assembly:** Send the V2 SMD PCB layout for fabrication and complete solder assembly and board bring-up.
-- **Firmware Development:** Finalize the embedded firmware for button matrix scanning, deep sleep power management, IR code learning/transmission, and OLED menu navigation.
-- **Enclosure Design:** Design and 3D print a custom, ergonomic handheld enclosure tailored precisely to the manufactured PCB dimensions.
+- **Fabrication & Assembly:** Send the SMD PCB layout for fabrication and solder the board for testing.
+- **Firmware Development:** Finalize the embedded firmware using the TCA8418 for button matrix scanning, deep sleep power management, IR code learning/transmission, and OLED menu navigation.
+- **Enclosure Design:** Design and 3D print an ergonomic handheld enclosure with the manufactured PCB dimensions.
