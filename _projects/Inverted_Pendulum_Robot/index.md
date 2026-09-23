@@ -7,7 +7,7 @@ skills:
   - Embedded Systems & C Programming
   - Electrical Schematics (KiCAD)
   - Dynamic System Simulation (Python)
-main-image: /robot_thumbnail.jpg
+main-image: /robot_hero.jpg
 ---
 
 <div style="margin: 10px 0 25px 0; display: flex; gap: 12px; flex-wrap: wrap;">
