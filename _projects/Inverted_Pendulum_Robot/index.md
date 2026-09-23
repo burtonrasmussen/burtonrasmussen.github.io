@@ -28,7 +28,7 @@ The inverted pendulum on a mobile cart is a classic non-linear benchmark problem
 
 # Phase 1 – Dynamic Modeling, Voltage Input Formulation & LQR Simulation
 
-**Goal:** Derive the governing equations of motion from first principles, model the DC motor voltage-to-force actuator dynamics, and synthesize an optimal LQR controller in simulation before building physical hardware.
+**Goal:** Derive the governing equations of motion from first principles, model the DC motor voltage-to-force actuator dynamics with back-EMF damping, and synthesize an optimal LQR controller in simulation before building physical hardware.
 
 <div style="display: flex; gap: 20px; align-items: flex-start; justify-content: center; flex-wrap: wrap; margin: 25px 0;">
   <div style="flex: 1 1 340px; max-width: 480px; text-align: center;">
@@ -44,44 +44,50 @@ The inverted pendulum on a mobile cart is a classic non-linear benchmark problem
   </div>
 </div>
 
-## 1. Lagrangian System Dynamics
-Using the Euler-Lagrange formulation $\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right) - \frac{\partial L}{\partial q_i} = Q_i$ with generalized coordinates $\mathbf{q} = [x, \theta]^T$, the nonlinear equations coupling the cart position ($x$) and pendulum tilt angle ($\theta$) are:
+## 1. Linearized System Dynamics
+Using the small-angle approximation ($\sin\theta \approx \theta$, $\cos\theta \approx 1$, $\dot{\theta}^2 \approx 0$) and modeling friction with viscous damping coefficient $b$:
 
-$$ (M + m)\ddot{x} + m l \ddot{\theta}\cos\theta - m l \dot{\theta}^2\sin\theta = F_x $$
+$$ (M + m)\ddot{x} + b\dot{x} + ml\ddot{\theta} = F \quad (1) $$
 
-$$ (I + ml^2)\ddot{\theta} + m l \ddot{x}\cos\theta - m g l \sin\theta = 0 $$
+$$ (I + ml^2)\ddot{\theta} + mgl\theta + ml\ddot{x} = 0 \quad (2) $$
 
-Linearizing around the upright equilibrium point ($\theta \approx 0$, $\cos\theta \approx 1$, $\sin\theta \approx \theta$, $\dot{\theta}^2 \approx 0$):
+Defining the determinant factor $q = (M+m)(I+ml^2) - (ml)^2$, the state-space form with horizontal input force $F$ is:
 
-$$ (M + m)\ddot{x} + m l \ddot{\theta} = F_x $$
+$$ \begin{bmatrix} \dot{x} \\ \ddot{x} \\ \dot{\theta} \\ \ddot{\theta} \end{bmatrix} = \begin{bmatrix} 0 & 1 & 0 & 0 \\ 0 & -\frac{(I+ml^2)b}{q} & -\frac{(ml)^2 g}{q} & 0 \\ 0 & 0 & 0 & 1 \\ 0 & -\frac{ml b}{q} & \frac{mgl(M+m)}{q} & 0 \end{bmatrix} \begin{bmatrix} x \\ \dot{x} \\ \theta \\ \dot{\theta} \end{bmatrix} + \begin{bmatrix} 0 \\ \frac{I+ml^2}{q} \\ 0 \\ -\frac{ml}{q} \end{bmatrix} F $$
 
-$$ (I + ml^2)\ddot{\theta} + m l \ddot{x} = m g l \theta $$
+## 2. Motor Actuator & Voltage-Input Formulation
+When using motor armature voltage $V$ as the direct control input (via PWM), back-EMF creates an electrical damping effect on cart motion ($\omega_m = \frac{G\dot{x}}{r}$ and $i = \frac{V - K_e \omega_m}{R}$):
 
-## 2. Motor Actuator & Voltage Input Model
-To directly control the robot via PWM duty cycle on the microcontroller, the force $F_x$ was derived as a function of the motor armature terminal voltage $V_{in}$:
+$$ F = \frac{G K_t}{r}\left( \frac{V - K_e \frac{G\dot{x}}{r}}{R} \right) = \underbrace{\left(\frac{G K_t}{r R}\right)}_{\text{Input Gain}} V - \underbrace{\left(\frac{G^2 K_t K_e}{r^2 R}\right)\dot{x}}_{\text{Back-EMF Damping}} $$
 
-$$ F_x = \frac{k_t G}{R r} V_{in} - \frac{k_t k_b G^2}{R r^2} \dot{x} $$
+The effective damping coefficient in matrix $\mathbf{A}$ becomes:
 
-Where:
-- $k_t$: Motor torque constant
-- $k_b$: Back-EMF constant
-- $R$: Armature winding resistance
-- $G$: Gear reduction ratio ($3:1$)
-- $r$: Wheel radius
+$$ b_{\text{eff}} = b + \frac{G^2 K_t K_e}{r^2 R} $$
 
-Substituting $F_x$ yields the linear continuous-time state-space representation $\mathbf{\dot{x}} = \mathbf{A}\mathbf{x} + \mathbf{B}V_{in}$ with state vector $\mathbf{x} = [x, \dot{x}, \theta, \dot{\theta}]^T$.
+## 3. Physical Parameters & Empirical System Identification
+The system parameters were determined through physical measurements and bench experiments:
+- **Cart Mass ($M$):** $2.525\text{ kg}$ (with effective drivetrain inertia $M_{\text{eff}} = M + \frac{J G^2}{r^2}$)
+- **Pendulum Mass ($m$):** $0.152\text{ kg}$
+- **Center of Mass Distance ($l$):** $0.105\text{ m}$
+- **Pendulum Rotational Inertia ($I$):** $3.770 \times 10^{-3}\text{ kg}\cdot\text{m}^2$ (derived experimentally from free-oscillation period $T = 0.975\text{ s}$ via $I = \frac{mgl T^2}{4\pi^2}$)
+- **Wheel Radius ($r$):** $0.038\text{ m}$, **Gear Ratio ($G$):** $3:1$
+- **Motor Parameters:** Winding resistance $R = 6.5\ \Omega$ (measured at stall), $K_t = K_e = 0.1394\text{ N}\cdot\text{m/A}$ (measured via lever-arm torque vs. current test)
 
-## 3. LQR Optimal Control Law
-The Linear Quadratic Regulator (LQR) was designed to minimize the quadratic performance index:
+Substituting these values yields $q = 14.32 \times 10^{-3}$ and the final numerical state-space system:
+
+$$ \begin{bmatrix} \dot{x} \\ \ddot{x} \\ \dot{\theta} \\ \ddot{\theta} \end{bmatrix} = \begin{bmatrix} 0 & 1 & 0 & 0 \\ 0 & -7.084 & -0.1745 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 20.76 & 29.26 & 0 \end{bmatrix} \begin{bmatrix} x \\ \dot{x} \\ \theta \\ \dot{\theta} \end{bmatrix} + \begin{bmatrix} 0 \\ 0.6437 \\ 0 \\ -1.887 \end{bmatrix} V $$
+
+## 4. LQR Optimal Control Law
+The Linear Quadratic Regulator (LQR) minimizes the quadratic performance index:
 
 $$ J = \int_0^\infty \left( \mathbf{x}^T \mathbf{Q} \mathbf{x} + R u^2 \right) dt $$
 
-Solving the Continuous Algebraic Riccati Equation (CARE) yields the optimal state-feedback gain vector $\mathbf{K}$:
+Solving the Continuous Algebraic Riccati Equation (CARE) generates the optimal state-feedback gain vector $\mathbf{K}$ executed in real time:
 
 $$ u(t) = -\mathbf{K} \mathbf{x}(t) = - (k_1 x + k_2 \dot{x} + k_3 \theta + k_4 \dot{\theta}) $$
 
 {% include image-gallery.html images="derivation_preview-1.png" height="350" %}
-*Snippet of the handwritten Lagrangian mechanics and voltage-input state-space derivation. [View the complete 6-page derivation document (PDF)](/assets/projects/Inverted_Pendulum_Robot/Inverted_Pendulum_Control_Derivation.pdf).*
+*Snippet of the handwritten Lagrangian mechanics and voltage-input state-space derivation. [View the complete 5-page derivation document (PDF)](/assets/projects/Inverted_Pendulum_Robot/Inverted_Pendulum_Control_Derivation.pdf).*
 
 ---
 
