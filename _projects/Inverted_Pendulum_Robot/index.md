@@ -88,7 +88,7 @@ $$ \begin{bmatrix} \dot{x} \\ \ddot{x} \\ \dot{\theta} \\ \ddot{\theta} \end{bma
 
 <div style="display: flex; gap: 20px; align-items: flex-start; justify-content: center; flex-wrap: wrap; margin: 25px 0;">
   <div style="flex: 1 1 340px; max-width: 480px; text-align: center;">
-    <video style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" controls playsinline>
+    <video style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" controls muted playsinline>
       <source src="/assets/projects/Inverted_Pendulum_Robot/robot_balancing_demo.webm" type="video/webm">
       <source src="/assets/projects/Inverted_Pendulum_Robot/robot_balancing_demo.mp4" type="video/mp4">
       Your browser does not support the video tag.
@@ -96,7 +96,7 @@ $$ \begin{bmatrix} \dot{x} \\ \ddot{x} \\ \dot{\theta} \\ \ddot{\theta} \end{bma
     <p style="font-size: 0.85em; color: #666; margin-top: 8px;"><em>Physical demonstration of the self-balancing inverted pendulum robot in action.</em></p>
   </div>
   <div style="flex: 1 1 340px; max-width: 480px; text-align: center;">
-    <video style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" controls playsinline>
+    <video style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" controls muted playsinline>
       <source src="/assets/projects/Inverted_Pendulum_Robot/robot_physical_demo.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
