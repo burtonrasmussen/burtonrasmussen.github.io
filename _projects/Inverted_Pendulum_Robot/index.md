@@ -30,15 +30,19 @@ The inverted pendulum on a mobile cart is a classic non-linear benchmark problem
 
 **Goal:** Derive the governing equations of motion from first principles, model the DC motor voltage-to-force actuator dynamics, and synthesize an optimal LQR controller in simulation before building physical hardware.
 
-<div style="margin: 20px 0; text-align: center;">
-  <video width="100%" style="max-width: 650px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" controls autoplay loop muted playsinline>
-    <source src="/assets/projects/Inverted_Pendulum_Robot/pendulum_sim.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <p style="font-size: 0.85em; color: #666; margin-top: 6px;"><em>Simulation of the inverted pendulum cart stabilizing from an initial tilt disturbance under LQR feedback control.</em></p>
+<div style="display: flex; gap: 20px; align-items: flex-start; justify-content: center; flex-wrap: wrap; margin: 25px 0;">
+  <div style="flex: 1 1 340px; max-width: 480px; text-align: center;">
+    <video style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" controls autoplay loop muted playsinline>
+      <source src="/assets/projects/Inverted_Pendulum_Robot/pendulum_sim.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p style="font-size: 0.85em; color: #666; margin-top: 8px;"><em>Simulation of the inverted pendulum cart stabilizing under LQR control.</em></p>
+  </div>
+  <div style="flex: 1 1 340px; max-width: 480px; text-align: center;">
+    <img src="/_projects/Inverted_Pendulum_Robot/lqr_response.png" alt="LQR Step Response Plot" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <p style="font-size: 0.85em; color: #666; margin-top: 8px;"><em>LQR closed-loop impulse & step disturbance recovery response.</em></p>
+  </div>
 </div>
-
-{% include image-gallery.html images="lqr_response.png" height="400" %}
 
 ## 1. Lagrangian System Dynamics
 Using the Euler-Lagrange formulation $\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right) - \frac{\partial L}{\partial q_i} = Q_i$ with generalized coordinates $\mathbf{q} = [x, \theta]^T$, the nonlinear equations coupling the cart position ($x$) and pendulum tilt angle ($\theta$) are:

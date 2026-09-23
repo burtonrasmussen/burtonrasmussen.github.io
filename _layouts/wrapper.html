@@ -14,12 +14,22 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/syntax.css">
 
-    <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
+    <!-- MathJax for LaTeX Rendering -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    
     <title>{{ site.title }}</title>
-    
-
 </head>
 <body>
     <!-- NAVBAR -->
