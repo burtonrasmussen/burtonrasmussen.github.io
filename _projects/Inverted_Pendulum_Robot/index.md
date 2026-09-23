@@ -38,7 +38,7 @@ The inverted pendulum on a mobile cart is a classic, highly non-linear benchmark
 
 ## Hardware & Schematic Architecture
 - **Power Train:** Selected a 24V brushed DC motor I had on hand,and used a 3:1 pulley gear ratio. The motor had a built-in 400 CPR quadrature encoder. We went with a POLULU TB8041FTG motor driver due to its high efficiency and ability to drive high current DC motors.
-- **KiCAD wiring schematic:** Due to time constraints, we went with a perfboard and point-to-point wiring strategy for the robot, using KiCAD to create a wiring schematic to help keep track of the wiring.
+- **KiCAD wiring schematic:** Due to time constraints, we went with a perfboard and point-to-point wiring for the robot, using KiCAD to create a wiring schematic to help keep track of the wiring.
 - **Pendulum encoder:** selected a magnetic rotary encoder to provide high resolution feedback on the angle of the pendulum.
 ---
 

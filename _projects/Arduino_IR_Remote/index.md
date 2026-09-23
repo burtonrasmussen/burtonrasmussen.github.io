@@ -9,7 +9,7 @@ skills:
 - Microcontroller Programming
 - Component Selection
 - Soldering & Electronics Assembly
-main-image: /pcb_top_poured.png
+main-image: /pcb_top_clean.png
 ---
 
 # Project Goal
@@ -55,7 +55,7 @@ To design and build a programmable, Microcontroller-powered IR remote capable of
 ---
 
 # Phase 3 – PCB Design & Miniaturization (V2 SMD Prototype)
-{% include image-gallery.html images="pcb_top_poured.png, pcb_bottom_poured.png" height="500" %}
+{% include image-gallery.html images="pcb_top_clean.png, pcb_bottom_clean.png" height="500" %}
 {% include image-gallery.html images="kicad_schematic.png" height="600" %}
 
 **Goal:** Transition the validated prototype circuit into a compact, professional PCB using KiCAD.
