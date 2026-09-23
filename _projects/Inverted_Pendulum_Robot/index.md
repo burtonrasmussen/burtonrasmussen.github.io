@@ -16,10 +16,10 @@ main-image: /lqr_response.png
 The inverted pendulum on a mobile cart is a classic non-linear benchmark problem in control theory and robotics. The goal of this project was to design, model, simulate, and build a self-balancing robot from scratch. The system integrates full-state feedback control (LQR) derived from first-principles Lagrangian dynamics to maintain upright stability and reject external disturbances in real time.
 
 <div style="margin: 15px 0; display: flex; gap: 12px; flex-wrap: wrap;">
-  <a href="https://github.com/burtonrasmussen/Pendulum-Robot" target="_blank" rel="noopener noreferrer" style="background-color: var(--link-color, #4a76ee); color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
+  <a href="https://github.com/uofu-emb-26/Pendulum-Robot" target="_blank" rel="noopener noreferrer" style="background-color: var(--link-color, #4a76ee); color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
     <i class="fa-brands fa-github"></i> View Firmware Code on GitHub
   </a>
-  <a href="Inverted_Pendulum_Control_Derivation.pdf" target="_blank" rel="noopener noreferrer" style="background-color: var(--light-background-color, #f3f5fb); color: var(--text-color, #1a1c20); border: 1px solid var(--border-color, #ddd); padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
+  <a href="/assets/projects/Inverted_Pendulum_Robot/Inverted_Pendulum_Control_Derivation.pdf" target="_blank" rel="noopener noreferrer" style="background-color: var(--light-background-color, #f3f5fb); color: var(--text-color, #1a1c20); border: 1px solid var(--border-color, #ddd); padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
     <i class="fa-solid fa-file-pdf"></i> Download Handwritten Derivation (PDF)
   </a>
 </div>
@@ -32,7 +32,7 @@ The inverted pendulum on a mobile cart is a classic non-linear benchmark problem
 
 <div style="margin: 20px 0; text-align: center;">
   <video width="100%" style="max-width: 650px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" controls autoplay loop muted playsinline>
-    <source src="pendulum_sim.mp4" type="video/mp4">
+    <source src="/assets/projects/Inverted_Pendulum_Robot/pendulum_sim.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <p style="font-size: 0.85em; color: #666; margin-top: 6px;"><em>Simulation of the inverted pendulum cart stabilizing from an initial tilt disturbance under LQR feedback control.</em></p>
@@ -77,7 +77,7 @@ Solving the Continuous Algebraic Riccati Equation (CARE) yields the optimal stat
 $$ u(t) = -\mathbf{K} \mathbf{x}(t) = - (k_1 x + k_2 \dot{x} + k_3 \theta + k_4 \dot{\theta}) $$
 
 {% include image-gallery.html images="derivation_preview-1.png" height="350" %}
-*Snippet of the handwritten Lagrangian mechanics and voltage-input state-space derivation. [View the complete 6-page derivation document (PDF)](Inverted_Pendulum_Control_Derivation.pdf).*
+*Snippet of the handwritten Lagrangian mechanics and voltage-input state-space derivation. [View the complete 6-page derivation document (PDF)](/assets/projects/Inverted_Pendulum_Robot/Inverted_Pendulum_Control_Derivation.pdf).*
 
 ---
 
