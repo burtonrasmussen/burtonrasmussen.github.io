@@ -7,14 +7,10 @@ skills:
   - Embedded Systems & C Programming
   - Electrical Schematics (KiCAD)
   - Dynamic System Simulation (Python)
-main-image: /lqr_response.png
+main-image: /robot_thumbnail.jpg
 ---
 
-# Project Goal
-
-The inverted pendulum on a mobile cart is a classic, non-linear benchmark problem in control theory and robotics. The goal of this project was to design, model, simulate, and build a self-balancing robot from scratch. The system integrates full-state feedback control (LQR) to maintain upright stability and reject external disturbances.
-
-<div style="margin: 15px 0; display: flex; gap: 12px; flex-wrap: wrap;">
+<div style="margin: 10px 0 25px 0; display: flex; gap: 12px; flex-wrap: wrap;">
   <a href="https://github.com/uofu-emb-26/Pendulum-Robot" target="_blank" rel="noopener noreferrer" style="background-color: var(--link-color, #4a76ee); color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
     <i class="fa-brands fa-github"></i> View Firmware Code on GitHub
   </a>
@@ -85,6 +81,28 @@ $$ \begin{bmatrix} \dot{x} \\ \ddot{x} \\ \dot{\theta} \\ \ddot{\theta} \end{bma
 - **Encoder Quadrature Decoding:** Utilized hardware timer encoder interfaces to track wheel positions ($x$) and velocities ($\dot{x}$) without processor overhead.
 - **I2C communication:** Configured I2C to read pendulum encoder data within 150 microseconds. Used logic analyzer to diagnose and verify timing to ensure communication met the 1 kHz control loop requirements.
 - **Full-State Feedback Computation:** Calculated real-time motor PWM command voltages via $u = -\mathbf{K}\mathbf{x}$, incorporating anti-windup deadband compensation for motor static friction.
+
+---
+
+# Demonstration & Hardware Testing
+
+<div style="display: flex; gap: 20px; align-items: flex-start; justify-content: center; flex-wrap: wrap; margin: 25px 0;">
+  <div style="flex: 1 1 340px; max-width: 480px; text-align: center;">
+    <video style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" controls playsinline>
+      <source src="/assets/projects/Inverted_Pendulum_Robot/robot_balancing_demo.webm" type="video/webm">
+      <source src="/assets/projects/Inverted_Pendulum_Robot/robot_balancing_demo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p style="font-size: 0.85em; color: #666; margin-top: 8px;"><em>Physical demonstration of the self-balancing inverted pendulum robot in action.</em></p>
+  </div>
+  <div style="flex: 1 1 340px; max-width: 480px; text-align: center;">
+    <video style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);" controls playsinline>
+      <source src="/assets/projects/Inverted_Pendulum_Robot/robot_physical_demo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p style="font-size: 0.85em; color: #666; margin-top: 8px;"><em>Demonstration of system stability under model parameter mismatch by adding extra weight (a ruler) to the pendulum.</em></p>
+  </div>
+</div>
 
 ---
 
