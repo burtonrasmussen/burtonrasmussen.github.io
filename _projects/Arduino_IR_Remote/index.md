@@ -9,7 +9,7 @@ skills:
 - ESP32/Arduino
 - Soldering & Electronics Assembly
 - Component Selection
-main-image: /kicad_big_pcb.png
+main-image: /pcb_top_poured.png
 ---
 
 # Project Goal
@@ -47,36 +47,36 @@ To design and build a programmable, ESP-32 powered IR remote capable of replacin
 ## Challenges
 - The large number of buttons exceeded the available GPIO pins on the ESP32, which required me to research and learn more advanced input handling techniques to solve the problem.
 - The IR emmitting LED required amplification in order for other devices to pick up it's signal from larger distances.
-- 
-
 
 ## Lessons Learned
 - Gained practical experience with circuit design principles, including the application of shift registers and diode matrices for input expansion.
-- Honed skills in soldering and physical prototyping
+- Honed skills in soldering and physical prototyping.
 
 ---
 
-# Phase 3 – PCB Design & Miniaturization (Current Stage)
+# Phase 3 – PCB Design & Miniaturization (V2 SMD Prototype)
+{% include image-gallery.html images="pcb_top_poured.png, pcb_bottom_poured.png" height="500" %}
+{% include image-gallery.html images="pcb_top.png, pcb_bottom.png" height="500" %}
 {% include image-gallery.html images="kicad_schematic.png" height="600" %}
-{% include image-gallery.html images="kicad_big_pcb.png" height="400" %}
-{% include image-gallery.html images="kicad_pcbdesigner.png" height="400" %}
 
-
-**Goal:** Transition the validated prototype circuit into a compact and professional Printed Circuit Board (PCB) using KiCAD.
+**Goal:** Transition the validated prototype circuit into a compact, professional SMD Printed Circuit Board (PCB) using KiCAD.
 
 ## Design Highlights
-- Created a complete electrical schematic and a 2-layer PCB layout in **KiCAD**.
+- Transitioned from bulky through-hole components to surface-mount technology (SMD) to dramatically reduce board area and maintain an ergonomic handheld form factor.
+- Routed a multi-layer PCB in **KiCAD** incorporating ground and power copper pours for signal integrity and low noise.
+- Integrated dedicated power regulation circuitry (boost regulator and MOSFET power switching) alongside the ESP-32 controller, OLED header, and tactile button matrix.
 
 ## Challenges
-- The initial PCB layout using through-hole components was too large for an ergonomic remote. This created the need to learn SMD-based design, which is what the current stage of this project is.
+- Managing high trace density and routing around matrix switches required careful layer stack-up planning, via placement, and clearance verification.
+- Ensuring adequate thermal dissipation and low-impedance return paths for the amplified high-power IR LED drive stage.
 
 ## Lessons Learned
-- This stage is providing valuable experience in Design for Manufacture (DFM) and the trade-offs between different component packages (Through-Hole vs. Surface Mount) in terms of space, cost, and ease of assembly.
+- Gained in-depth Design for Manufacture (DFM) and Design for Assembly (DFA) experience with SMD footprints, solder mask clearances, and component sourcing.
 
 ---
 
 # Future Direction
 
-- **Finalize PCB Design:** Complete the SMD-based PCB layout and send it for fabrication.
-- **Firmware Development:** Write the Arduino code to manage button scanning, IR code learning, and transmission, utilizing the OLED display to provide useful information to the user.
-- **Enclosure Design:** Once the final PCB dimensions are confirmed, I will design and 3D print a custom, ergonomic enclosure to house the electronics.
+- **Fabrication & Assembly:** Send the V2 SMD PCB layout for fabrication and complete solder assembly and board bring-up.
+- **Firmware Development:** Finalize the embedded firmware for button matrix scanning, deep sleep power management, IR code learning/transmission, and OLED menu navigation.
+- **Enclosure Design:** Design and 3D print a custom, ergonomic handheld enclosure tailored precisely to the manufactured PCB dimensions.

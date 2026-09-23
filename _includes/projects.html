@@ -4,6 +4,7 @@
 
     <div class="grid-container">
         {% for item in site.projects %}
+        {% unless item.hidden == true or item.draft == true %}
     <a href="{{ item.url }}" class="project-link">
         <div class="project-card">
             {% assign folder_path = item.path | split: "/" | slice: 0, 2 | join: "/" %}
@@ -19,6 +20,7 @@
             <button class="read-more">Read more →</button>
         </div>
     </a>
+        {% endunless %}
 {% endfor %}
     </div>
 

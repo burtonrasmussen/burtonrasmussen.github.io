@@ -1,0 +1,44 @@
+---
+layout: wrapper
+permalink: /drafts/
+title: Draft Projects Preview
+---
+
+<section id="projects" class="project-grid-section">
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <h2>Drafts & Preview Mode</h2>
+        <p style="color: #666; max-width: 600px; margin: 0 auto;">
+            This page displays all projects, including those marked with <code>hidden: true</code>.
+            Use this page to preview how draft projects appear in the grid and inspect rendered project pages before making them public.
+        </p>
+    </div>
+
+    <div class="grid-container">
+        {% for item in site.projects %}
+        <a href="{{ item.url }}" class="project-link">
+            <div class="project-card" style="position: relative;">
+                {% if item.hidden or item.draft %}
+                <div style="position: absolute; top: 10px; right: 10px; background: #ff4d6d; color: white; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; z-index: 10;">
+                    DRAFT
+                </div>
+                {% else %}
+                <div style="position: absolute; top: 10px; right: 10px; background: #2a9d8f; color: white; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; z-index: 10;">
+                    PUBLIC
+                </div>
+                {% endif %}
+                {% assign folder_path = item.path | split: "/" | slice: 0, 2 | join: "/" %}
+                {% assign image_path = "/" | append: folder_path | append: item['main-image'] %}
+                <img src="{{ image_path }}" alt="{{ item.title }} image">
+                <h3 class="project-title">{{ item.title }}</h3>
+                <div class="project-skills">
+                    {% for skill in item.skills %}
+                        <span class="skill">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+                <p class="project-description">{{ item.description }}</p>
+                <button class="read-more">Read more →</button>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
